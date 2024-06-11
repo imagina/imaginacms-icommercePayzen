@@ -2,7 +2,7 @@
 
 use Illuminate\Routing\Router;
 
-$router->group(['prefix'=>'icommercepayzen'],function (Router $router){
+Route::prefix('icommercepayzen')->group(function (Router $router){
        
     $router->get('/{eUrl}', [
         'as' => 'icommercepayzen',

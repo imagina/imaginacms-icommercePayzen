@@ -2,7 +2,7 @@
 
 use Illuminate\Routing\Router;
 
-$router->group(['prefix' => 'icommercepayzen/v1'], function (Router $router) {
+Route::prefix('icommercepayzen/v1')->group(function (Router $router) {
     
     $router->get('/', [
         'as' => 'icommercepayzen.api.payzen.init',
