@@ -176,6 +176,7 @@ class IcommercePayzenApiController extends BaseApiController
 
           //Permitirá identificar de manera única la transacción.
           $codTransactionState = $data['vads_trans_uuid'] ?? null;
+          \Log::info($this->log.'codTransactionState: '.$codTransactionState);
 
           // Get States From Commerce
           $transactionState = $data['vads_trans_status']; 
@@ -191,12 +192,13 @@ class IcommercePayzenApiController extends BaseApiController
             // Update Transaction
             $transactionUp = $this->validateResponseApi(
               $this->transactionController->update($inforReference['transactionId'],new Request(
-                  [
+                  ["attributes" => [
                       'payment_method_id' => $this->paymentMethod->id,
                       'amount' => $order->total,
                       'status' => $newStatusOrder,
                       'external_status' => $transactionState,
                       'external_code' => $codTransactionState
+                    ]
                   ]
               ))
             );
