@@ -7,21 +7,18 @@ use Modules\Isite\Jobs\ProcessSeeds;
 
 class IcommercepayzenDatabaseSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
-    {
+  /**
+   * Run the database seeds.
+   *
+   * @return void
+   */
+  public function run()
+  {
 
-        ProcessSeeds::dispatch([
-            "baseClass" => "\Modules\Icommercepayzen\Database\Seeders",
-            "seeds" => ["IcommercepayzenModuleTableSeeder", "IcommercepayzenSeeder"]
-        ]);
+    ProcessSeeds::dispatch([
+      "baseClass" => "\Modules\Icommercepayzen\Database\Seeders",
+      "seeds" => ["IcommercepayzenModuleTableSeeder", "IcommercepayzenSeeder"]
+    ]);
 
-    }
-
-    
-
+  }
 }
